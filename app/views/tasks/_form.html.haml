@@ -5,9 +5,9 @@
 
   .form-inputs
     = f.input :name, label: t('.name')
-    = f.input :description
-    = f.input :due_date
-    = f.association :category
+    = f.input :description, label: t('.description')
+    = f.input :due_date, label: t('.due_date')
+    = f.association :category, label: t('.category')
 
   .form-actions
     = f.button :submit

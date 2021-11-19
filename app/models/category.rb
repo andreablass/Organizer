@@ -10,4 +10,7 @@
 #
 class Category < ApplicationRecord
     belongs_to:category
+    #has_many : tasks
+
+    validates :name, :description, presence: true
 end
