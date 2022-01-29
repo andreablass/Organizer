@@ -14,5 +14,5 @@ class Category < ApplicationRecord
     #has_many : tasks
 
     validates :name, :description, presence: true
-    validates :name, uniqueness: { case_insensitive: } # para que haga la validacion de introducir datos diferentes
+    validates :name, uniqueness: { case_insensitive: false } # para que haga la validacion de introducir datos diferentes
 end
