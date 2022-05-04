@@ -26,8 +26,8 @@ es:
     due date: Fecha de nacimiento
     form:
       category: Category
-      description: Descripción
-      due_date: Fecha de nacimiento
-      name: Nombre
+      description: Description
+      due_date: Due date
+      name: Name
     name: Nombre
-    new_tasks: Nueva Tarea
+    new_tasks: New tasks

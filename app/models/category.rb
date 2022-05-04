@@ -10,9 +10,11 @@
 #
 
 class Category < ApplicationRecord
-    belongs_to:category
-    #has_many : tasks
+    has_many :tasks
 
+    #para validar que se escriba
     validates :name, :description, presence: true
+    #validacion de unicidad para que no se repita el mismo nombre de la categoria, se usa
+    #case_insensitive para que tampoco permita las minusculas o mayus con el mismo nombre de category
     validates :name, uniqueness: { case_insensitive: false } # para que haga la validacion de introducir datos diferentes
 end
