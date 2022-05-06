@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <!-- se le agrega un  nombre un path y un metodo --!>
+    <%= link_to 'cerrar sesión', destroy_user_session_path, method: :delete %>
     <%= yield %>
   </body>
 </html>
