@@ -22,6 +22,10 @@ class Task < ApplicationRecord
   validates :name, uniqueness: { case_insensitive: false }
   validate :due_date_validity
 
+  #con este metododo validaoms que si podra añadir informacion nidada, con info que viene de otro formulario
+  #no sólo nos permite anidar información de los partifcipantes sino también elminar información de los mismos
+  accepts_nested_attributes_for :participating_users, allow_destroy: true
+
   def due_date_validity
     return if due_date.blank?
     return if due_date > Date.today
