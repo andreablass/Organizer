@@ -22,6 +22,7 @@ class Task < ApplicationRecord
   validates :name, uniqueness: { case_insensitive: false }
   validate :due_date_validity
 
+  before_create :create_code
   #con este metododo validaoms que si podra añadir informacion nidada, con info que viene de otro formulario
   #no sólo nos permite anidar información de los partifcipantes sino también elminar información de los mismos
   accepts_nested_attributes_for :participating_users, allow_destroy: true
@@ -31,5 +32,8 @@ class Task < ApplicationRecord
     return if due_date > Date.today
     errors.add :due_date, I18n.t('task.errors.invalid_due_date')
   end
-  
+
+  def create_code
+    self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex(8)}"
+  end
 end
