@@ -11,20 +11,15 @@
   = @task.due_date
 %p
   %b Category:
-  = @task.category, 
+  = @task.category
 
 .notes-container
-    .card
-      .card-body
-        - if @task.notes.exists?
-          .notes
-            - @task.notes.order(created_at: :asc).each do |note|
-              .note-element
-                = render 'tasks/notes/note', note: note
-        - else
-          .notes
-        = simple_form_for Note.new, url: task_notes_path(task_id: @task.id), remote: true do |f|
-          = f.input :body, label: false, placeholder: 'Escriba una nota', as: :string, input_html: { autocomplete: :off }
+  .notes
+    - @task.notes.each do |note|
+      = render 'tasks/notes/note.html.haml', note: note
+    - if can? :create, @task
+      = simple_form_for Note.new, url: task_notes_path(task_id: @task.id), remote: true do |f|
+        = f.input :body, label: false, as: :string, placeholder: 'Ingrese su nota...', input_html: {autocomplete: :off}
 = link_to 'Edit', edit_task_path(@task)
 \|
 = link_to 'Back', tasks_path

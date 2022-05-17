@@ -1,5 +1,7 @@
 class Tasks::NotesController < ApplicationController
     before_action :set_task
+    load_resource :task
+    load_and_authorize_resource :through => :task
   
     def create
       @note = @task.notes.new(note_params)
