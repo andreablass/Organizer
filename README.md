@@ -13,7 +13,6 @@ It is a simple task organizer with ruby on rails
 
 ![screenshot App 1](https://github.com/andreablass/Organizer/blob/510540e93d0f806f18c7541bd8bafe09b0ea5206/app/assets/images/example2.jpg)
 
-![screenshot App 1](https://github.com/andreablass/Organizer/blob/510540e93d0f806f18c7541bd8bafe09b0ea5206/app/assets/images/example3.jpg)
 
 ## Users:
 |user|pass|
